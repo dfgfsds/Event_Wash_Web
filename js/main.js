@@ -37,3 +37,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = window.location.pathname.split("/").pop(); 
+    const links = document.querySelectorAll(".category-link");
+
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+
+        if (href === currentPage) {
+            // Apply active styles to the link
+            link.classList.remove("bg-[#111]", "text-gray-300");
+            link.classList.add(
+                "bg-gradient-to-r",
+                "from-purple-700/60",
+                "to-yellow-400/40",
+                "border-yellow-500/40",
+                "text-white",
+                "font-semibold"
+            );
+
+            // Update the indicator bar
+            const indicator = link.querySelector(".indicator");
+            indicator.classList.remove("bg-gray-500");
+            indicator.classList.add("bg-yellow-400");
+        }
+    });
+});
+
