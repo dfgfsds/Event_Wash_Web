@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            background: #0d0d0d;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #facc15;
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+    <!-- ===== HEADER ===== -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4 md:py-5">
+
+            <!-- Logo -->
+            <a href="index.html">
+                <img src="assets/logo/logo_Swash1.png" alt="Event Swash Logo"
+                    class="w-[200px] md:w-[250px] h-[65px] md:h-[75px]">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 font-medium text-white">
+                <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+                <a href="about.html" class="hover:text-yellow-400 transition">About</a>
+                <a href="led-tv.html" class="hover:text-yellow-400 transition">Televisions</a>
+                <a href="projector.html" class="hover:text-yellow-400 transition">Projector</a>
+                <a href="lights.html" class="hover:text-yellow-400 transition">Lights</a>
+                <a href="sound-system.html" class="hover:text-yellow-400 transition">Sound System</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition">Contact</a>
+            </nav>
+
+            <!-- Buttons / Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <a
+                    href="https://wa.me/8105089996?text=Hello!%20Welcome%20to%20Event%20Swash.%20How%20can%20we%20help%20you?">
+                    <button
+                        class="hidden md:block relative inline-block px-6 py-3 font-semibold text-white rounded-full bg-gradient-to-r from-purple-600 to-yellow-400 transition-all duration-500 hover:scale-105">
+                        Get Start
+                    </button>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-yellow-400 text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobileMenu"
+        class="hidden fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center space-y-6 text-lg md:hidden">
+
+        <!-- Close Button -->
+        <button id="closeMenu" class="absolute top-6 right-6 text-yellow-400 text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+        <a href="about.html" class="hover:text-yellow-400 transition">About</a>
+        <a href="led-tv.html" class="hover:text-yellow-400 transition">Televisions</a>
+        <a href="projector.html" class="hover:text-yellow-400 transition">Projector</a>
+        <a href="lights.html" class="hover:text-yellow-400 transition">Lights</a>
+        <a href="sound-system.html" class="hover:text-yellow-400 transition">Sound System</a>
+        <a href="contact.html" class="hover:text-yellow-400 transition">Contact</a>
+    </div>
+
+    <!-- ===== 404 CONTENT ===== -->
+    <section class="flex items-center justify-center h-screen px-4 text-center">
+
+        <div class="mt-20">
+            <h1 class="text-9xl font-bold text-yellow-400 glow-text">404</h1>
+
+            <p class="text-2xl mt-4">Oops! Page Not Found</p>
+
+            <p class="text-lg mt-2 text-gray-300">
+                Redirecting you to the homepage in <span id="timer">3</span> seconds...
+            </p>
+
+            <a href="index.html"
+                class="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-purple-600 to-yellow-400 rounded-full text-black font-bold hover:opacity-90 transition">
+                Go to Home Now
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="text-gray-300 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>©2025 Event Swash | All Rights Reserved | Designed by
+                <a href="https://www.ftdigitalsolutions.in/" class="text-yellow-400">FT Digital Solutions</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== Mobile Menu Script ===== -->
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
+    </script>
+
+    <!-- ===== Redirect Timer Script ===== -->
+    <script>
+        let timeLeft = 3;
+        const timerText = document.getElementById("timer");
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerText.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = "index.html";
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
